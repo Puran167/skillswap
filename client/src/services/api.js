@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { API_BASE_URL } from '../config/api';
+import { API_BASE_URL } from '../config1';
 
 // Final unified base URL strategy: env-driven with optional hardcoded fallback removed
 const api = axios.create({
