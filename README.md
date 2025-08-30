@@ -223,3 +223,29 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Happy Learning! 🎓✨**
+
+## 🛳 Deployment (Render)
+
+### Backend Web Service (server/)
+Set these environment variables in Render dashboard:
+```
+MONGO_URI=your_connection
+JWT_SECRET=your_secret
+EMAIL_USER=your_gmail
+EMAIL_PASS=your_gmail_app_password
+TWILIO_ACCOUNT_SID=...
+TWILIO_AUTH_TOKEN=...
+TWILIO_PHONE_NUMBER=+
+CLIENT_URL=https://your-frontend-domain
+```
+
+### Frontend Static Site (client/)
+Set:
+```
+REACT_APP_API_URL=https://message-site-1.onrender.com/api
+REACT_APP_SOCKET_URL=https://message-site-1.onrender.com
+```
+
+Redeploy frontend after backend URL changes.
+
+---

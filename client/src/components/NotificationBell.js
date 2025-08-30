@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import api from '../services/api';
 import io from 'socket.io-client';
+import { SOCKET_URL } from '../config/api';
 
 const NotificationBell = () => {
     const [notifications, setNotifications] = useState([]);
@@ -34,9 +35,11 @@ const NotificationBell = () => {
         const token = localStorage.getItem('token');
         if (!token) return;
 
-        socketRef.current = io('http://localhost:3001', {
-            auth: { token }
-        });
+        if (!socketRef.current) {
+            socketRef.current = io(SOCKET_URL, {
+                auth: { token }
+            });
+        }
 
         // Get user ID from token (you might need to decode JWT)
         const user = JSON.parse(localStorage.getItem('user') || '{}');
